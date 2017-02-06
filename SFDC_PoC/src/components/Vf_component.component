@@ -1,0 +1,5 @@
+<apex:component >
+  <apex:attribute name="textvalue" description="This is the value of component" type="string" required="true"/>
+  <apex:attribute name="textcolor" description="This is the color of component" type="string" required="true"/>
+  <apex:outputText > value="{!textvalue} style="color:{!textcolor}" </apex:outputText>
+</apex:component>

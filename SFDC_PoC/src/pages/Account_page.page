@@ -1,0 +1,43 @@
+<apex:page Standardcontroller="Account" Extensions="AccController"> 
+             
+ <apex:form > 
+ 
+ <apex:pageblock id="abc">
+ <apex:pageBlockTable value="{!acc}" var="a">
+            /* <script>
+               function lauchwindow(){
+               window.open("/apex/VFPageName?id={!a.id}");
+               }
+            </script> */
+         <apex:column >
+             <apex:commandButton value="Edit" action="{!method1}" rerender="abc" > 
+                        
+            
+               <apex:param name="eventId" value="{!a.id}" assignTo="{!paramValue}"/>
+             </apex:commandButton>  
+        </apex:column>
+        <apex:column value="{!a.name}"/>
+        <apex:column value="{!a.ownerid}"/>
+             <apex:commandButton value="Save" action="{!save}" />
+           
+           
+
+   /* <apex:outputPanel id="refreshPanel" rendered="{!refreshPage}">
+        <!-- This panel is only shown when the controller wants the parent page to perform a 'reload' -->
+        <script>
+            // force the browser to reload the 'top' page using the current URL
+            window.top.location.href = window.top.location.href;
+        </script>
+    </apex:outputPanel>*/
+
+  </apex:pageBlockTable>
+        <apex:pageblockButtons >
+            <apex:commandButton value="First Page" rerender="abc" action="{!FirstPage}" disabled="{!prev}"/>
+            <apex:commandButton value="Previous" rerender="abc" action="{!previous}" disabled="{!prev}"/>
+            <apex:commandButton value="Next" rerender="abc" action="{!next}" disabled="{!nxt}"/>
+            <apex:commandButton value="Last Page" rerender="abc" action="{!LastPage}" disabled="{!nxt}"/>
+        </apex:pageblockButtons>
+  </apex:pageblock>
+ </apex:form>
+
+</apex:page>

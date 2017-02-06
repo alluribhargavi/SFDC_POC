@@ -1,0 +1,28 @@
+<apex:page standardController="User" extensions="RecordTransfer">
+  <apex:form >
+  <apex:pageMessages id="msg"></apex:pageMessages>
+      <apex:pageBlock title="Transfer Of Records">
+         
+          <apex:pageblockSection >
+              <apex:outputText value="Objetcs List"/>
+                  <apex:selectList value="{!selectedObject}" size="1" onchange="showRecords();">
+                      <apex:selectOptions value="{!ObjectNames}"/>
+                  </apex:selectList>
+          </apex:pageblockSection>
+          
+          <apex:pageBlockButtons > 
+              <apex:commandButton value="Transfer of Records"  action="{!TransferOfRecords}"/>
+          </apex:pageBlockButtons>
+          
+          <apex:pageblockSection >
+              <apex:inputField label="Transfer Form" value="{!User.From_User__c}"/>
+          </apex:pageblockSection>    
+          <apex:pageblockSection >
+              <apex:inputField label="Transfer to" value="{!User.To_User__c}"/>
+          </apex:pageblockSection>  
+            
+          
+      </apex:pageBlock>
+  
+  </apex:form>
+</apex:page>

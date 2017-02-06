@@ -1,0 +1,46 @@
+<apex:page Controller="PajinateController">
+<apex:pageblock title="Client-Side Paginated DataTable">
+                <apex:pageblocksection title="Pagination Easy as 1-2-3" columns="1" id="pbs">
+                    <div class="page_navigation"></div>
+
+                    <script> 
+                        /* Feel free to use your favourite method of getting VF component Ids */
+                        var accountTableId = '{!$Component.accountTable}'; 
+                        var accountTableBodyId = accountTableId + ':tb';
+                        
+                        var pbsId = '{!$Component.pbs}';
+                    
+                    </script>
+
+                    <apex:datatable value="{!accounts}" var="account" id="accountTable" rows="1000">
+                        <apex:column >
+                            <apex:facet name="header">Name</apex:facet>
+                            <apex:outputfield value="{!account.name}"></apex:outputfield>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Rating</apex:facet>
+                            <apex:outputfield value="{!account.rating}"></apex:outputfield>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Annual Revenue</apex:facet>
+                            <apex:outputfield value="{!account.annualRevenue}"></apex:outputfield>
+                        </apex:column>
+                    </apex:datatable>
+
+                    <div class="page_navigation"></div>
+                </apex:pageblocksection>
+            </apex:pageblock>
+             $.noConflict();
+
+        jQuery(document).ready(function($){
+            $(esc(pbsId)).pajinate({
+                item_container_id : esc(accountTableBodyId),
+                items_per_page : 40
+            });
+        });
+
+        function esc(myid) {
+           return '#' + myid.replace(/(:|\.)/g,'\\\\$1');
+        }
+
+  </apex:page>

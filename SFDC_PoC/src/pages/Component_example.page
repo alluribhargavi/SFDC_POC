@@ -1,0 +1,9 @@
+<apex:page tabStyle="Account">
+    <apex:pageblock >
+        <apex:pageblockSection title="My account list" collapsible="false">
+            <c:Vf_component textvalue="This is blue" textcolor="Blue"/>
+            <c:Vf_component textvalue="This is red"  textcolor="Red"/>        
+        </apex:pageblockSection>        
+     </apex:pageblock>
+  
+</apex:page>

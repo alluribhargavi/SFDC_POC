@@ -1,0 +1,16 @@
+<apex:page controller="Insertopportunity">
+  <apex:form >
+  <apex:pageblock title="Oportunity Information ">
+      <apex:pageBlockSection title="Opportunity Details">
+          <apex:inputField value="{!opp.name}"/>
+          <apex:inputField value="{!opp.accountid}"/>
+          <apex:inputField value="{!opp.stagename}"/>
+          <apex:inputField value="{!opp.closedate}"/>
+          <apex:inputField value="{!opp.forecastcategoryname}"/>
+       </apex:pageBlockSection> 
+         <apex:pageblockButtons >
+             <apex:commandButton value="Save Oppty" action="{!Save}"/>
+         </apex:pageblockButtons> 
+   </apex:pageblock>
+  </apex:form>
+</apex:page>
